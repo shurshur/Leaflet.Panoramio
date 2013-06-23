@@ -16,7 +16,7 @@ function init() {
 
   var map = new L.Map('map', {center: center, zoom: zoom});
   var mapnik = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: OSM_COPY });
-  var panoramio = new L.Panoramio(); 
+  var panoramio = new L.Panoramio({maxLoad: 50, maxTotal: 250}); 
   map.addLayer(mapnik);
   map.addLayer(panoramio);
   var layers = { "Map": mapnik };
